@@ -9,7 +9,7 @@ function App() {
   const [aiLoading, setAiLoading] = useState(false)
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/')
+    fetch('/api/')
       .then((res) => res.json())
       .then((data) => {
         setBackendData(data)
@@ -29,7 +29,7 @@ function App() {
     setAiResponse('')
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/generate', {
+      const res = await fetch('/api/generate',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
